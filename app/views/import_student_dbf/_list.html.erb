@@ -1,0 +1,16 @@
+<% if @students %>
+    <table border="1" cellspacing="0" width="96%" align="center" >
+      <tr>
+        <th>姓名</th>
+        <th>性别码</th>
+        <th>年级</th>
+      </tr>
+      <% @students.each do |student| %>
+          <tr>
+            <td><%= h student.XM %></td>
+            <td><%= h student.XBM %></td>
+            <td><%= h student.NJ %></td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>

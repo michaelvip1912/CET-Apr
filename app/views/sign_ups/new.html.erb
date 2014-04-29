@@ -1,0 +1,84 @@
+<% provide(:title, '考试报名') %>
+
+<%= form_for(@sign_up) do |f| %>
+   <%= render 'shared/error_messages', object: f.object %>
+
+    <table class="data_table">
+      <caption><h3>报名信息填写</h3></caption>
+
+      <tr>
+         <td>报名考试选择</td>
+         <td><% @choose.each do |choose| %>
+                <%=h choose %>
+                <%= check_box_tag 'sub[]', choose, false %>
+             <% end %></td>
+      </tr>
+
+      <tr>
+         <td><h5>照片</h5></td>
+         <td><%= f.file_field :up_load_file %>必须为.jpg格式，大小4K-10K</td>
+      </tr>
+
+      <tr>
+         <td>姓名</td>
+         <td><%= f.text_field :name, :readonly => true %></td>
+      </tr>
+
+      <tr>
+         <td>性别</td>
+         <td><%= f.text_field :gender, :readonly => true %></td>
+      </tr>
+
+      <tr>
+         <td>学号</td>
+         <td><%= f.text_field :student_no, :readonly => true %></td>
+      </tr>
+
+      <tr>
+         <td>证件类型</td>
+         <td><%= f.select :id_type, options_for_select(['居民身份证']) %></td>
+      </tr>
+
+      <tr>
+         <td>证件号码</td>
+         <td><%= f.text_field :id_number, :readonly => true %></td>
+      </tr>
+
+      <tr>
+         <td>学历</td>
+         <td><%= f.select :education, options_for_select(['专科', '本科', '研究生']) %></td>
+      </tr>
+
+      <tr>
+         <td>学制</td>
+         <td><%= f.select :education_len, options_for_select(['3年', '4年', '5年']) %></td>
+      </tr>
+
+      <tr>
+         <td>年级</td>
+         <td><%= f.text_field :grade, :readonly => true %></td>
+      </tr>
+
+      <tr>
+         <td>学院</td>
+         <td><%= f.text_field :academy_encode, :readonly=>true  %></td>
+      </tr>
+
+      <tr>
+         <td>专业</td>
+         <td> <%= f.text_field :professional_encode, :readonly=>true  %></td>
+      </tr>
+
+      <tr>
+         <td>班级</td>
+         <td><%= f.text_field :class_name %>例如:石油工程1201</td>
+      </tr>
+
+      <tr>
+         <td>电话</td>
+         <td><%= f.text_field :tel %>11位数字</td>
+      </tr>
+    </table>
+
+    <%= f.submit "确定报名", class: "btn btn-large btn-primary" %>
+<% end %>

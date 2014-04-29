@@ -1,0 +1,417 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover {
+      color: $grayDarker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+.page_table {
+    padding: 0;
+    margin: 0;
+    font-family: verdana, arial, helvetica, sans-serif;
+    line-height: 18px;
+}
+
+.data_table {
+    padding: 0;
+    margin: 0;
+    font-family: verdana, arial, helvetica, sans-serif;
+    line-height: 18px;
+    width: 60%;
+    border: solid 1px;
+    border-collapse: collapse;
+
+}
+
+
+.data_table  td, .data_table th {
+    border: 1px solid;
+    background: #fff;
+    padding: 3px 3px 3px 8px;
+    color: #4f6b72;
+    margin: 0;
+}
+
+
+hr {
+    width: 100%;
+    border-color: #4f6b72;
+}
+
+.data_table a {
+    color: #4f6b72;
+    text-decoration: none;
+}
+
+.show_table {
+    padding: 0;
+    margin: 0;
+    font-family: verdana, arial, helvetica, sans-serif;
+    line-height: 18px;
+    width: 35%;
+    border: solid 2px;
+    border-collapse: collapse;
+}
+
+.show_table  td, .data_table th {
+    border: 1px solid;
+    background: #fff;
+    padding: 3px 3px 3px 8px;
+    color: #4f6b72;
+    margin: 0;
+}
+
+.show_table a {
+    color: #4f6b72;
+    text-decoration: none;
+}
+.page_table a {
+    color: black;
+    font: small;
+    text-decoration: none;
+
+}
+
+#store {
+    height: 100%;
+    margin: 1px;
+}
+
+#banner {
+    background: #9c9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid;
+    font: small-caps 40px/40px 'times new roman', serif;
+    color: #282;
+    text-align: center;
+    height: 50px;
+}
+
+#banner img {
+    float: left;
+    width: 42px;
+    height: 42px;
+    padding-left: 10px;
+}
+
+#columns {
+    background: #141;
+    height: 100%;
+    min-height: 100%; /*for ie6 bug and ie7+,moz,webkit 正确*/
+}
+
+#main {
+    margin-left: 13em;
+    padding-top: 1ex;
+    padding-left: 2em;
+    padding-right: 2em;
+    background: #ffffff;
+}
+
+#side {
+    float: left;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    width: 12em;
+    background: #141;
+
+}
+
+#side a {
+    color: #ffffff;
+    font: small;
+    text-decoration: none;
+}
+
+#side a:hover {
+    color: darkblue;
+    font: small;
+}
+
+#login_table {
+    position: absolute;
+    padding-left: 50%;
+    margin-left: -220px;
+}
+
+body {
+    background-color: white;
+    color: #333;
+}
+
+body, p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+.fieldWithErrors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+

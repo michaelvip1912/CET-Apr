@@ -1,0 +1,24 @@
+<% provide(:title, @academy.academy_name) %>
+<h1>学院显示</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>学院代码:</strong>
+      <%= @academy.academy_encode %><br>
+    </p>
+    <p>
+      <strong>学院名称:</strong>
+      <%= @academy.academy_name %>
+    </p>
+  </div>
+</div>
+
+<div class="offset2">
+  <%= link_to '修改', edit_academy_path(@academy) %> |
+  <%= link_to '返回', academies_path %>
+</div>
+
+
+

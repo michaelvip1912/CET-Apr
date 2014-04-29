@@ -1,0 +1,25 @@
+<%= form_for(@academy) do |f| %>
+  <% if @academy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@academy.errors.count, "error") %> prohibited this academy from being saved:</h2>
+
+      <ul>
+        <% @academy.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="span6 offset3">
+          <%= f.label :academy_encode,"学院代码" %>
+          <%= f.text_field :academy_encode %>
+ 
+          <%= f.label :academy_name,"学院名称" %>
+          <%= f.text_field :academy_name %>
+ 
+          <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+ <% end %>

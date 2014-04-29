@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  professional_encode: MyString
+  professional_name: MyString
+
+two:
+  professional_encode: MyString
+  professional_name: MyString

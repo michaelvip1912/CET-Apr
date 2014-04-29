@@ -1,0 +1,25 @@
+<%= form_for(@course_total) do |f| %>
+  <% if @course_total.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course_total.errors.count, "error") %> prohibited this course_total from being saved:</h2>
+
+      <ul>
+        <% @course_total.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="span6 offset3">
+          <%= f.label :course_encode,"考试科目代码" %>
+          <%= f.text_field :course_encode %>
+
+          <%= f.label :course_name,"考试科目名称" %>
+          <%= f.text_field :course_name %>
+
+          <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+<% end %>

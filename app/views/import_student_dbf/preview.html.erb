@@ -1,0 +1,61 @@
+<% if @refers %>
+    <% form_tag preview_import_student_dbf_path do %>
+        <%= hidden_field_tag "file_name", @file_name %>
+        <table border="1" cellspacing="0" width="96%" align="center">
+          <caption>字段对应关系选择</caption>
+          <% i=0 %>
+          <% @refers.each do |refer| %>
+              <% if i%7 == 0 %>
+                  <tr>
+              <% end %>
+              <td><%= h refer[1] %></td>
+              <td><%= select_tag "refers[#{refer[0]}]", options_for_select(@options_refers, refer[2]) %></td>
+
+              <% i=i+1 %>
+              <% if i%7 == 0 %>
+                  </tr>
+              <% end %>
+
+          <% end %>
+
+    <% end %>
+    </table>
+
+
+
+    <% if @students %>
+        <table border="1" cellspacing="0" width="96%" align="center">
+          <caption>结果数据预览</caption>
+          <tr>
+            <th>姓名</th>
+            <th>性别码</th>
+
+            <th>身份证号</th>
+            <th>学号</th>
+            <th>学院</th>
+            <th>专业</th>
+
+          </tr>
+          <% @students.each do |student| %>
+              <tr>
+                <td><%= h student.name %></td>
+                <td><%= h student.gender %></td>
+
+                <td><%= h student.id_number %></td>
+                <td><%= h student.student_no %></td>
+                <td><%= h student.academy_encode %></td>
+                <td><%= h student.professional_encode %></td>
+
+              </tr>
+          <% end %>
+        </table>
+    <% end %>
+    <table border="0" cellspacing="0" width="96%" align="center">
+      <tr>
+        <td align="center"><%= submit_tag "预览数据" %>
+          <%= submit_tag "导入到学生库" %>
+        </td>
+      </tr>
+    </table>
+
+<% end %>

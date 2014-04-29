@@ -1,0 +1,41 @@
+<%= form_for(@all_test) do |f| %>
+  <% if @all_test.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@all_test.errors.count, "error") %> prohibited this all_test from being saved:</h2>
+
+      <ul>
+        <% @all_test.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="span6 offset3">
+          请选择本次考试所有科目<br>
+          <% @courses.each do |course| %>
+             <%= h course.course_name %>
+             <%= check_box_tag 'selected[]', course.course_encode %>
+          <% end %><br>
+
+          <%= f.label :description,"考试简述" %>
+          <%= f.text_field :description %>
+
+          <%= f.label :test_date,"考试时间" %>
+          <%= f.date_select :test_date,:use_month_numbers=>true %>
+
+          <%= f.label :begin_date,"报名开始时间" %>
+          <%= f.date_select :begin_date,:use_month_numbers=>true %>
+
+          <%= f.label :end_date,"报名截止时间" %>
+          <%= f.date_select :end_date,:use_month_numbers=>true %>
+
+          <%= f.label :attachment,"附件" %>
+          <%= f.file_field :up_load_file %>
+
+          <br>
+          <%= f.submit "保存", class: "btn btn-primary" %>
+         </div>
+       </div>
+<% end %>

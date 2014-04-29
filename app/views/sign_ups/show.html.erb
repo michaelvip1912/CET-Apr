@@ -1,0 +1,84 @@
+<% provide(:title, '考试报名表显示') %>
+
+<table class="show_table" >
+   <caption><h2>个人考试报名表</h2></caption>
+    <tr>
+      <td>照片:</td>
+      <td><img src="/photos/<%= @sign_up.photo_url %>" width="80" height="75"  > </td>
+    </tr>
+
+    <tr>
+        <td>缴费:</td>
+        <td><%= get_name_by_paid(@sign_up.paid) %></td>
+    </tr>
+
+    <tr>
+        <td>考试科目:</td>
+        <td><%= @sign_up.subject_1_encode %>
+            <%= @sign_up.subject_2_encode %>
+            <%= @sign_up.subject_3_encode %>
+            <%= @sign_up.subject_4_encode %></td>
+    </tr>
+
+    <tr>
+        <td>姓名:</td>
+        <td><%= @sign_up.name %></td>
+    </tr>
+
+    <tr>
+        <td>性别:</td>
+        <td><%= @sign_up.gender %></td>
+    </tr>
+
+    <tr>
+        <td>学号:</td>
+        <td><%=h @sign_up.student_no %></td>
+    </tr>
+
+    <tr>
+        <td>证件类型:</td>
+        <td><%= @sign_up.id_type %></td>
+    </tr>
+
+    <tr>
+        <td>证件号码:</td>
+        <td><%=h @sign_up.id_number %></td>
+    </tr>
+
+    <tr>
+        <td>学历:</td>
+        <td><%= @sign_up.education %></td>
+    </tr>
+
+    <tr>
+        <td>学制:</td>
+        <td><%=h @sign_up.education_len %></td>
+    </tr>
+
+    <tr>
+        <td>年级:</td>
+        <td><%=h @sign_up.grade %></td>
+    </tr>
+
+    <tr>
+        <td>学院:</td>
+        <td><%=h @sign_up.academy_encode %></td>
+    </tr>
+
+    <tr>
+        <td>专业:</td>
+        <td><%=h @sign_up.professional_encode %></td>
+    </tr>
+
+    <tr>
+        <td>班级:</td>
+        <td><%=h @sign_up.class_name %></td>
+    </tr>
+
+
+    <tr>
+        <td>电话:</td>
+        <td><%=h @sign_up.tel %></td>
+    </tr>
+</table>
+

@@ -1,0 +1,9 @@
+<% form_tag save_import_student_dbf_path, :multipart => true do %>
+    <table border="1" cellspacing="0" width="96%" align="center">
+      <caption>招生数据导入</caption>
+      <tr>
+        <td>导入DBF文件：<%= file_field("file", "file") %><%= submit_tag("预览数据") %></td>
+      </tr>
+    </table>
+<% end %>
+<span id="student_list"></span>

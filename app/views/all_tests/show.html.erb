@@ -1,0 +1,39 @@
+<% provide(:title, '考试信息显示') %>
+<h1>本次考试信息</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>考试简述:</strong>
+      <%= @all_test.description %><br>
+    </p>
+    <p>
+      <strong>考试科目:</strong>
+      <%= @one_test_course.course_encode %>
+    </p>
+    <p>
+      <strong>考试日期:</strong>
+      <%= @all_test.test_date %>
+    </p>
+    <p>
+      <strong>报名开始日期:</strong>
+      <%= @all_test.begin_date %>
+    </p>
+    <p>
+      <strong>报名截止日期:</strong>
+      <%= @all_test.end_date %>
+    </p>
+    <p>
+      <strong>考试附件下载:</strong>
+      <% unless @all_test.attachment.nil? %>
+      <%= link_to '本次考试附件下载' ,:action => 'down_load_file',:id => @all_test.id%>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<div class="offset2">
+  <%= link_to '修改', edit_all_test_path(@all_test) %> |
+  <%= link_to '返回', all_tests_path %>
+</div>

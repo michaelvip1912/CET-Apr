@@ -1,0 +1,46 @@
+<div class="users">
+ <table class="table table-striped table-bordered table-hover">
+   <thead>
+     <tr>
+       <th>学号</th>
+       <th>姓名</th>
+       <th>性别</th>
+       <th>学历</th>
+       <th>学制</th>
+       <th>年级</th>
+       <th>学院</th>
+       <th>专业</th>
+       <th>班级</th>
+       <th>考试科目</th>
+       <th>缴费</th>
+       <th></th>
+     </tr>
+   </thead>
+
+   <tbody>
+    <% unless @sign_ups.nil? %>
+     <% @sign_ups.each do |sign_up| %>
+       <tr>
+         <td><%= link_to sign_up.student_no, sign_up %></td>
+         <td><%= sign_up.name %></td>
+         <td><%= sign_up.gender %></td>
+         <td><%= sign_up.education %></td>
+         <td><%= sign_up.education_len %></td>
+         <td><%= sign_up.grade %></td>
+         <td><%= sign_up.academy_encode %></td>
+         <td><%= sign_up.professional_encode %></td>
+         <td><%= sign_up.class_name %></td>
+         <td><%= sign_up.subject_1_encode %>
+             <%= sign_up.subject_2_encode %>
+             <%= sign_up.subject_3_encode %>
+             <%= sign_up.subject_4_encode %></td>
+         <td><%= get_name_by_paid(sign_up.paid) %></td>
+         <td><%= link_to '删除', sign_up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       </tr>
+     <% end %>
+    <% end %>
+   </tbody>
+ </table>
+</div>
+
+<%= will_paginate %>

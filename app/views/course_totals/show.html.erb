@@ -1,0 +1,24 @@
+<% provide(:title, @course_total.course_name) %>
+<h1>考试科目显示</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>考试科目代码:</strong>
+      <%= @course_total.course_encode %><br>
+    </p>
+    <p>
+      <strong>考试科目名称:</strong>
+      <%= @course_total.course_name %>
+    </p>
+  </div>
+</div>
+
+<div class="offset2">
+  <%= link_to '修改', edit_course_total_path(@course_total) %> |
+  <%= link_to '返回',course_totals_path %>
+</div>
+
+
+

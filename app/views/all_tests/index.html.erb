@@ -1,0 +1,40 @@
+<% provide(:title, '历次考试信息') %>
+<h1>历次考试信息</h1>
+
+<div>
+  <%= link_to ">>发布新考试", new_all_test_path,
+                                class: "btn btn-large btn-primary btn-link" %>
+</div>
+
+<div class="users">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>考试简述</th>
+        <th>考试日期</th>
+        <th>报名开始日期</th>
+        <th>报名截止日期</th>
+        <th>附件</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @all_tests.each do |all_test| %>
+      <tr>
+        <td><%= link_to all_test.description, all_test %></td>
+        <td><%= all_test.test_date %></td>
+        <td><%= all_test.begin_date %></td>
+        <td><%= all_test.end_date %></td>
+        <td><% unless all_test.attachment.nil? %>
+            <%= link_to '考试附件下载' ,:action => 'down_load_file',:id => all_test.id%>
+            <% end %></td>
+        <td><%= link_to '修改', edit_all_test_path(all_test) %></td>
+        <td><%= link_to '删除', all_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+

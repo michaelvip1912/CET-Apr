@@ -1,0 +1,24 @@
+<% provide(:title, @professional.professional_name) %>
+<h1>专业显示</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>专业代码:</strong>
+      <%= @professional.professional_encode %><br>
+    </p>
+    <p>
+      <strong>专业名称:</strong>
+      <%= @professional.professional_name %>
+    </p>
+  </div>
+</div>
+
+<div class="offset2">
+  <%= link_to '修改', edit_professional_path(@professional) %> |
+  <%= link_to '返回', professionals_path %>
+</div>
+
+
+

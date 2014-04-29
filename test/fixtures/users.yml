@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  encode: MyString
+  name: MyString
+  academy_encode: MyString
+  password_digest: MyString
+  remember_token: MyString
+
+two:
+  encode: MyString
+  name: MyString
+  academy_encode: MyString
+  password_digest: MyString
+  remember_token: MyString

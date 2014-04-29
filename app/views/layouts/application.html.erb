@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all", 
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <% if signed_in? %>
+              <div class="pull-right">
+                    <h4><%= current_user.encode %></h4>
+                    <h4><%= current_user.academy_encode %></h4>
+                    <h4><%= get_name_by_permission(current_user.permission) %></h4>
+                    <h4><%= link_to "修改密码", edit_user_path(current_user) %></h4>
+                    <h4><%= link_to "退出登录", signout_path, method: "delete" %></h4>
+                    <h4>-------------------</h4>
+                 <% if current_user.permission == "school_admin" %>
+                    <%= render 'layouts/school_admin_left' %>
+                 <% elsif current_user.permission == "academy_admin" %>
+                    <%= render 'layouts/academy_admin_left' %>
+                 <% elsif current_user.permission == "student_user" %>
+                    <%= render 'layouts/student_user_left' %>
+                 <% end %>
+              </div>
+          <% end %>
+        </div>
+        <div class="span10">
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+            <%= yield %>
+            <% #debug(params) if Rails.env.development? %>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

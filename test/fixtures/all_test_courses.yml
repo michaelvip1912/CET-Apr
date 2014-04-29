@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  all_test_id: 1
+  course_encode: MyString
+
+two:
+  all_test_id: 1
+  course_encode: MyString

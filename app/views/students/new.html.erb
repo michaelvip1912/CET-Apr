@@ -1,0 +1,35 @@
+<% provide(:title, '新建学生信息') %>
+<h1>新建学生信息</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@student) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :student_no, "学号" %>
+         <%= f.text_field :student_no %>
+
+         <%= f.label :name, "姓名" %>
+         <%= f.text_field :name %>
+
+         <%= f.label :gender, "性别" %>
+         <%= f.select :gender, options_for_select(["男" ,"女"], "男") %>
+
+         <%= f.label :id_number, "身份证号码" %>
+         <%= f.text_field :id_number %>
+
+         <%= f.label :academy_encode, "学院" %>
+         <%= f.select :academy_encode, options_for_select(Academy.all.collect{|p| [p.academy_name]}) %>
+
+         <%= f.label :professional_encode, "专业" %>
+         <%= f.select :professional_encode, options_for_select(Professional.all.collect{|p| [p.professional_name]})  %>
+
+         <%= f.label :grade %>
+         <%= f.select :grade, options_for_select(["2009","2010","2011","2012","2013","2014","2015", "2016"], "2014") %>
+
+         <%= f.submit "保存", class: "btn btn-primary" %> |
+         <%= link_to "返回", students_path %>
+    <% end %>
+  </div>
+</div>
+
+

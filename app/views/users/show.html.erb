@@ -1,0 +1,35 @@
+<% provide(:title, '用户信息') %>
+<h1>用户信息</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>帐号:</strong>
+      <%= @user.encode %>
+    </p>
+
+    <p>
+      <strong>名称:</strong>
+      <%= @user.name %>
+    </p>
+
+    <p>
+      <strong>级别:</strong>
+      <%= get_name_by_permission(@user.permission) %>
+    </p>
+
+    <p>
+      <strong>学院:</strong>
+      <%= @user.academy_encode %>
+    </p>
+  </div>
+</div>
+
+<div class="offset2">
+  <%= link_to '修改', edit_professional_path(@professional) %> |
+  <%= link_to '返回', professionals_path %>
+</div>
+
+

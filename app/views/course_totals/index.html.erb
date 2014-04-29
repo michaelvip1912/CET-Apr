@@ -1,0 +1,33 @@
+<% provide(:title, '考试科目列表') %>
+<h1>考试科目列表</h1>
+
+<div>
+  <%= link_to ">>添加考试科目", new_course_total_path,
+                                class: "btn btn-large btn-primary btn-link" %>
+</div>
+
+<div class="users">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+     <tr>
+        <th>考试科目代码</th>
+        <th>考试科目名称</th>
+        <th colspan="2">操作</th>
+     </tr>
+    </thead>
+
+    <tbody>
+      <% @course_totals.each do |course_total| %>
+      <tr>
+        <th><%= link_to course_total.course_encode, course_total %></th>
+        <th><%= link_to course_total.course_name, course_total %></th>
+        <th><%= link_to "修改", edit_course_total_path(course_total)%></th>
+        <th><%= link_to "删除", course_total, method: :delete,
+                                 data: { confirm: "确定删除?" } %></th>
+      </tr>
+      <% end %>
+   </tbody>
+  </table>
+</div>
+
+<%= will_paginate %>
